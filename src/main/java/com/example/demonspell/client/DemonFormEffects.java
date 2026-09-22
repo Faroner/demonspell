@@ -24,7 +24,7 @@ public final class DemonFormEffects {
             double x = player.getX() + Math.cos(angle) * radius;
             double y = player.getY() + 0.15 + player.getRandom().nextDouble() * 1.7;
             double z = player.getZ() + Math.sin(angle) * radius;
-            player.level().addParticle(ParticleTypes.SOUL_FIRE_FLAME, x, y, z, 0, 0.01, 0);
+            player.level().addParticle(ParticleTypes.SMOKE, x, y, z, 0, 0.01, 0);
         }
     }
 

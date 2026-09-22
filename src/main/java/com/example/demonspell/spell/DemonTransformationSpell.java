@@ -13,7 +13,6 @@ import io.redspace.ironsspellbooks.api.spells.CastType;
 import io.redspace.ironsspellbooks.api.spells.SpellRarity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
@@ -56,7 +55,7 @@ public class DemonTransformationSpell extends AbstractSpell {
 
     @Override
     public Optional<SoundEvent> getCastFinishSound() {
-        return Optional.of(SoundEvents.ENDERMAN_STARE);
+        return Optional.empty();
     }
 
     @Override
@@ -66,8 +65,6 @@ public class DemonTransformationSpell extends AbstractSpell {
             ModNetwork.setDemonForm(player, true);
             DemonFormServerEvents.setUntil(player, level.getGameTime() + 600L);
             player.addEffect(new MobEffectInstance(ModEffects.DEMON_TRANSFORMATION.get(), 600, 0, false, false, true));
-            level.playSound(null, player.blockPosition(), SoundEvents.ENDERMAN_TELEPORT,
-                    net.minecraft.sounds.SoundSource.PLAYERS, 0.8F, 0.55F);
         }
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
