@@ -19,6 +19,7 @@ public final class DemonFormServerEvents {
         long until = player.getPersistentData().getLong(UNTIL);
         if (until > 0 && player.level().getGameTime() >= until) {
             player.getPersistentData().remove(UNTIL);
+            player.removeEffect(com.example.demonspell.registry.ModEffects.DEMON_TRANSFORMATION.get());
             ModNetwork.setDemonForm(player, false);
         }
     }

@@ -2,6 +2,8 @@ package com.example.demonspell.spell;
 
 import com.example.demonspell.DemonFormServerEvents;
 import com.example.demonspell.network.ModNetwork;
+import com.example.demonspell.registry.ModEffects;
+import net.minecraft.world.effect.MobEffectInstance;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
@@ -63,6 +65,7 @@ public class DemonTransformationSpell extends AbstractSpell {
         if (!level.isClientSide && entity instanceof ServerPlayer player) {
             ModNetwork.setDemonForm(player, true);
             DemonFormServerEvents.setUntil(player, level.getGameTime() + 600L);
+            player.addEffect(new MobEffectInstance(ModEffects.DEMON_TRANSFORMATION.get(), 600, 0, false, false, true));
             level.playSound(null, player.blockPosition(), SoundEvents.ENDERMAN_TELEPORT,
                     net.minecraft.sounds.SoundSource.PLAYERS, 0.8F, 0.55F);
         }
