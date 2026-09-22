@@ -1,0 +1,10 @@
+{
+  "demon_transformation": {
+    "sounds": [
+      {
+        "name": "demonspell:demon_transformation",
+        "stream": false
+      }
+    ]
+  }
+}

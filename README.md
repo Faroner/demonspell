@@ -15,3 +15,6 @@ This project contains exactly one custom spell: **Demon Transformation**.
 - Player texture: `assets/demonspell/textures/player/demon.png`
 
 The uploaded player texture is kept unchanged.
+
+
+Custom demon transformation SFX: supplied WAV converted to OGG. Audio duration: 3.531s; spell cast time: 71 ticks (3.55s).

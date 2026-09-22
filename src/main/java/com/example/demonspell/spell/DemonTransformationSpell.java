@@ -3,6 +3,7 @@ package com.example.demonspell.spell;
 import com.example.demonspell.DemonFormServerEvents;
 import com.example.demonspell.network.ModNetwork;
 import com.example.demonspell.registry.ModEffects;
+import com.example.demonspell.registry.ModSounds;
 import net.minecraft.world.effect.MobEffectInstance;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
@@ -33,14 +34,14 @@ public class DemonTransformationSpell extends AbstractSpell {
     public DemonTransformationSpell() {
         baseSpellPower = 1;
         spellPowerPerLevel = 0;
-        castTime = 0;
+        castTime = 71;
         baseManaCost = 15;
         manaCostPerLevel = 3;
     }
 
     @Override
     public CastType getCastType() {
-        return CastType.INSTANT;
+        return CastType.LONG;
     }
 
     @Override
@@ -51,6 +52,11 @@ public class DemonTransformationSpell extends AbstractSpell {
     @Override
     public ResourceLocation getSpellResource() {
         return SPELL_ID;
+    }
+
+    @Override
+    public Optional<SoundEvent> getCastStartSound() {
+        return Optional.of(ModSounds.DEMON_TRANSFORMATION.get());
     }
 
     @Override
